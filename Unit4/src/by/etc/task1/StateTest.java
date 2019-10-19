@@ -1,11 +1,10 @@
 package by.etc.task1;
 
-import by.etc.task1.area.entity.Area;
-import by.etc.task1.city.entity.City;
-import by.etc.task1.region.entity.Region;
-import by.etc.task1.state.entity.State;
-import by.etc.task1.state.logic.StateLogic;
-import org.w3c.dom.ls.LSOutput;
+import by.etc.task1.entity.Area;
+import by.etc.task1.entity.City;
+import by.etc.task1.entity.Region;
+import by.etc.task1.entity.State;
+import by.etc.task1.logic.StateLogic;
 
 //Создать объект класса Государство, используя классы Область, Район, Город. Методы: вывести на консоль
 //столицу, количество областей, площадь, областные центры.
@@ -13,8 +12,10 @@ public class StateTest {
     public static void main(String[] args) {
         Area[] areas;
         City[] cities;
-        Region[] regions = new Region[5];
+        Region[] regions;
         State state;
+
+        regions = new Region[5];
 
         for (int i = 0; i < regions.length; i++) {
             cities = new City[2];
@@ -27,13 +28,18 @@ public class StateTest {
             }
             regions[i]=new Region("region "+(int)(Math.random()*100),cities,i+"");
         }
+
         state=new State("some state",regions,"Minsk");
-        int regionCount= StateLogic.regionCount(state);
-        double stateSize= StateLogic.takeStateSize(state);
-        String []regionCapitals=StateLogic.regionsCapital(state);
+        StateLogic stateLogic=new StateLogic();
+
+        int regionCount= stateLogic.regionCount(state);
+        double stateSize= stateLogic.takeStateSize(state);
+        String []regionCapitals=stateLogic.regionsCapital(state);
+
         for(String s : regionCapitals){
             System.out.println(s);
         }
+
         System.out.println(regionCount);
         System.out.println(stateSize);
         System.out.println(state.getCapital());
