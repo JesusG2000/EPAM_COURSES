@@ -6,7 +6,7 @@ import etc.by.task5.entity.Shop;
 public class ShopLogic {
 
 
-    public static Customer[] customers(Shop shop) {
+    public static Customer[] sortCustomers(Shop shop) {
         Customer[] customers;
 
         customers = shop.getCustomers();

@@ -20,22 +20,36 @@ public class Student {
         return surname;
     }
 
-    public int[] getMarks() {
-        return marks;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getInitials() {
+        return initials;
+    }
+
+    public void setInitials(String initials) {
+        this.initials = initials;
     }
 
     public int getGroupNumber() {
         return groupNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "surname='" + surname + '\'' +
-                ", initials='" + initials + '\'' +
-                ", groupNumber=" + groupNumber +
-                ", marks=" + Arrays.toString(marks) +
-                '}';
+    public void setGroupNumber(int groupNumber) {
+        this.groupNumber = groupNumber;
+    }
+
+    public int[] getMarks() {
+        return marks;
+    }
+
+    public int getMark(int index){return marks[index];}
+
+    public void setMark(int mark ,int index){marks[index]=mark;}
+
+    public void setMarks(int[] marks) {
+        this.marks = marks;
     }
 
     @Override
@@ -54,5 +68,15 @@ public class Student {
         int result = Objects.hash(surname, initials, groupNumber);
         result = 31 * result + Arrays.hashCode(marks);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "surname='" + surname + '\'' +
+                ", initials='" + initials + '\'' +
+                ", groupNumber=" + groupNumber +
+                ", marks=" + Arrays.toString(marks) +
+                '}';
     }
 }

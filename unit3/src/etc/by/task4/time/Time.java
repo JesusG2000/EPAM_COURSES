@@ -1,5 +1,7 @@
 package etc.by.task4.time;
 
+import java.util.Objects;
+
 public class Time {
    private int hour;
    private int min;
@@ -98,5 +100,27 @@ public class Time {
         return sec >= 0 && sec <= 59;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return hour == time.hour &&
+                min == time.min &&
+                sec == time.sec;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(hour, min, sec);
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "hour=" + hour +
+                ", min=" + min +
+                ", sec=" + sec +
+                '}';
+    }
 }

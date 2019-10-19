@@ -1,5 +1,7 @@
 package etc.by.task3.counter;
 
+import java.util.Objects;
+
 public class Counter {
     private int begin;
     private int end;
@@ -56,5 +58,29 @@ public class Counter {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Counter counter = (Counter) o;
+        return begin == counter.begin &&
+                end == counter.end &&
+                value == counter.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(begin, end, value);
+    }
+
+    @Override
+    public String toString() {
+        return "Counter{" +
+                "begin=" + begin +
+                ", end=" + end +
+                ", value=" + value +
+                '}';
     }
 }
