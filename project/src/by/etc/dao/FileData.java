@@ -7,7 +7,7 @@ import java.util.List;
 public final class FileData {
     private static final FileData instance = new FileData();
     private int productCount=0;
-    private String way="D:\\IdeaProjects\\cost\\src\\information";
+    private String way="src/by/etc/resource/information";
 
     public void increaseProductCount() {
         productCount++;
